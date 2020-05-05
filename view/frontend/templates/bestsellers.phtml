@@ -1,0 +1,106 @@
+<?php
+$helper = $this->helper('Magestar\BestSellers\Helper\Data');
+$isEnable = $helper->getCfg('general/enable');
+if ($isEnable == 1){ 
+?>
+<?php
+    if ( $exist = ($block->getBestSellerData() ) ){
+        $bestSellerCollection =  $block->getBestSellerData();
+        $categoryName =  $block->getCategoryName(); 
+        $helperImage = $this->helper('Magestar\BestSellers\Helper\Image');
+        $imageTypeId = 'itemgrid_category_page_grid';
+        $imgWidth = 260;
+        $imgHeight = 230;
+    }
+?>
+    <?php if ($exist){ ?>
+        <div class="block bestseller">
+            <div class="block-title title">
+                <strong id="block-bestseller-heading" role="heading" aria-level="2">
+                    <?php echo __('Our Top Selling '.$categoryName.' Products'); ?>
+                </strong>
+            </div>
+            <div class="block-content content">
+                <div class="products wrapper grid items-grid category-products-grid hover-effect products-grid">
+                    <ol class="products list items product-items itemgrid">
+                        <?php foreach ($bestSellerCollection as $item){ ?>
+                            <?php $_product = $item->load($item->getProductId()); ?>
+                            <li class="item product product-item ">
+                                <div class="product-item-info ">
+                                    <div class="product-item-img">
+                                        <a href="<?php echo $_product->getProductUrl() ?>" class="product photo product-item-photo">
+                                            <span class="product-image-container" style="width: 260px">
+                                                <span class="product-image-wrapper" style="padding-bottom: 88.46%">
+                                                    <img class="product-image-photo lof-lazy" 
+                                                         src="<?php echo $helperImage->getImageUrl($_product, $imageTypeId, $imgWidth, $imgHeight); ?>" 
+                                                         alt="<?php echo $block->escapeHtml($_product->getName()) ?>"/>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <div class="actions-secondary addto-links addto-links-icons addto-onimage onhover" data-role="add-to-links">
+                                            <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
+                                                <a href="#" data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'  class="action towishlist" data-action="add-to-wishlist" title="<?php echo __('Add to Wish List') ?>">
+                                                    <span class="icon ib ib-hover ic ic-heart "></span>
+                                                    <span><?php echo __('Add to Wish List') ?></span>
+                                                </a>
+                                            <?php endif; ?>
+                                            <?php
+                                                $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                                            ?>
+                                            <a href="#" class="action tocompare"
+                                               data-post='<?php echo $compareHelper->getPostDataParams($_product);?>'
+                                               data-role="add-to-links"
+                                               title="<?php echo __('Add to Compare'); ?>">
+                                                <span class="icon ib ib-hover ic ic-compare "></span>
+                                                <span><?php echo __('Add to Compare') ?></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="<?php echo $block->escapeHtml($_product->getName()) ?>"
+                                            href="<?php  echo $_product->getProductUrl() ?>"
+                                            class="product-item-link">
+                                                <?php echo $block->escapeHtml($_product->getName()) ?>
+                                            </a>
+                                        </strong>
+                                        <?php 
+                                            $abstractProductBlock = $block->getLayout()->createBlock('\Magento\Catalog\Block\Product\AbstractProduct');
+                                            echo $abstractProductBlock->getProductPrice($_product);
+                                        ?>
+                                        <div class="product actions product-item-actions">
+                                            <div class="actions-primary">
+                                                <?php if ($_product->isSaleable()): ?>
+                                                    <?php
+                                                        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                                        $listBlock = $objectManager->get('\Magento\Catalog\Block\Product\ListProduct');
+                                                        $addToCartUrl =  $listBlock->getAddToCartUrl($_product);
+                                                    ?>
+
+                                                    <form data-role="tocart-form" action="<?php echo $addToCartUrl; ?>" method="post"> 
+                                                        <?php echo $block->getBlockHtml('formkey')?>
+                                                        <div class="btn">
+                                                            <button type="submit" title="<?php echo __('Add to Cart') ?>" class="action tocart primary">
+                                                                <span><?php echo __('Add to Cart') ?></span>
+                                                            </button>
+                                                        </div>   
+                                                     </form>
+                                                <?php else: ?>
+                                                    <?php if ($_product->getIsSalable()): ?>
+                                                        <div class="stock available"><span><?php echo __('In stock') ?></span></div>
+                                                    <?php else: ?>
+                                                        <div class="stock unavailable"><span><?php echo __('Out of stock') ?></span></div>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                </div>
+                            </li>
+                        <?php } ?>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+<?php } ?>
