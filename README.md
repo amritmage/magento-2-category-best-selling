@@ -10,7 +10,7 @@
 
 
 ## Main Functionalities
-Show Best seller products of categories on category page
+This module will allow showing 4 best seller products on category page of that particular category
 
 ## Installation
 \* = in production please use the `--keep-generated` option
@@ -29,7 +29,7 @@ Show Best seller products of categories on category page
     - public repository `packagist.org`
     - public github repository as vcs
  - Add the composer repository to the configuration by running `composer config repositories.repo.magento.com composer https://repo.magento.com/`
- - Install the module composer by running `composer require magestar/module-erp`
+ - Install the module composer by running `composer require magestar/module-bestsellers`
  - enable the module by running `php bin/magento module:enable Magestar_BestSellers`
  - apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
