@@ -3,14 +3,11 @@ $helper = $this->helper('Magestar\BestSellers\Helper\Data');
 $isEnable = $helper->getCfg('general/enable');
 if ($isEnable == 1){ 
 ?>
-<?php
-    if ( $exist = ($block->getBestSellerData() ) ){
+<?php 
+    if ($exist = $block->getBestSellerData()){
         $bestSellerCollection =  $block->getBestSellerData();
         $categoryName =  $block->getCategoryName(); 
-        $helperImage = $this->helper('Magestar\BestSellers\Helper\Image');
-        $imageTypeId = 'itemgrid_category_page_grid';
-        $imgWidth = 260;
-        $imgHeight = 230;
+        $imageType = 'category_page_grid';
     }
 ?>
     <?php if ($exist){ ?>
@@ -32,7 +29,7 @@ if ($isEnable == 1){
                                             <span class="product-image-container" style="width: 260px">
                                                 <span class="product-image-wrapper" style="padding-bottom: 88.46%">
                                                     <img class="product-image-photo lof-lazy" 
-                                                         src="<?php echo $helperImage->getImageUrl($_product, $imageTypeId, $imgWidth, $imgHeight); ?>" 
+                                                         src="<?php echo $block->getImage($_product, $imageType)->getImageUrl(); ?>" 
                                                          alt="<?php echo $block->escapeHtml($_product->getName()) ?>"/>
                                                 </span>
                                             </span>

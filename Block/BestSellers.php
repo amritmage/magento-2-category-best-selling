@@ -10,18 +10,30 @@ class BestSellers extends \Magento\Framework\View\Element\Template
     protected $_bestSellerLimit = 4;
     protected $_period = 'year';
     protected $_bestSellerProductIds = [];
+    protected $_imageBuilder;
 
+    /**
+     * BannerSlider constructor.
+     * @param \Magento\Backend\Block\Template\Context $context
+     * @param \Magento\Framework\Registry $registry
+     * @param \Magento\Sales\Model\ResourceModel\Report\Bestsellers\CollectionFactory $collectionFactory
+     * @param \Magento\Reports\Model\ResourceModel\Product\CollectionFactory $productsFactory
+     * @param \Magento\Catalog\Block\Product\ImageBuilder $_imageBuilder
+     * @param array $data
+     */
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Sales\Model\ResourceModel\Report\Bestsellers\CollectionFactory $collectionFactory,
         \Magento\Reports\Model\ResourceModel\Product\CollectionFactory $productsFactory,
+        \Magento\Catalog\Block\Product\ImageBuilder $_imageBuilder,
         array $data = []
     ) {
   
         $this->_collectionFactory = $collectionFactory;
         $this->_registry = $registry;
         $this->_productsFactory = $productsFactory;
+        $this->_imageBuilder = $_imageBuilder;
         parent::__construct($context, $data);
     }
 
@@ -77,6 +89,20 @@ class BestSellers extends \Magento\Framework\View\Element\Template
         }else{
             return $result;
         }
+    }
+
+    /**
+     * @param $product
+     * @param $imageId
+     * @param array $attributes
+     * @return \Magento\Catalog\Block\Product\Image
+     */
+    public function getImage($product, $imageId, $attributes = [])
+    {
+        return $this->_imageBuilder->setProduct($product)
+            ->setImageId($imageId)
+            ->setAttributes($attributes)
+            ->create();
     }
 
 }
