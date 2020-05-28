@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="Magestar" translate="label" sortOrder="10">
+        <tab id="Magestar" translate="label" sortOrder="15">
             <label>Magestar</label>
         </tab>
-        <section id="bestsellers" translate="label" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
-            <class>separator-top</class>
+        <section id="bestsellers" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Best Seller Products</label>
             <tab>Magestar</tab>
             <resource>Magestar_BestSellers::config</resource>
@@ -19,3 +18,4 @@
         </section>
     </system>
 </config>
+

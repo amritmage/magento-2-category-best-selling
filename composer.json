@@ -1,5 +1,5 @@
 {
-    "name": "Magestar/best-sellers",
+    "name": "magestar/bestsellers",
     "description": "Best seller products",
     "require": {
         "magento/catalog": ""
