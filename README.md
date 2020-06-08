@@ -24,15 +24,7 @@ This module will allow showing 4 best seller products on category page of that p
 
 ### Type 2: Composer
 
- - Make the module available in a composer repository for example:
-    - private repository `repo.magento.com`
-    - public repository `packagist.org`
-    - public github repository as vcs
- - Add the composer repository to the configuration by running `composer config repositories.repo.magento.com composer https://repo.magento.com/`
- - Install the module composer by running `composer require magestar/bestsellers`
- - enable the module by running `php bin/magento module:enable Magestar_BestSellers`
- - apply database updates by running `php bin/magento setup:upgrade`\*
- - Flush the cache by running `php bin/magento cache:flush`
+ - Coming soon
 
 
 ## Configuration
