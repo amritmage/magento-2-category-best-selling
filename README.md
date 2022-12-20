@@ -1,4 +1,4 @@
-# Magento 2 Best Selling Product Slider
+# Magento 2 Best Selling Product Slider for Category Page
 
  ``magestar/bestsellers``
 
@@ -11,7 +11,7 @@
 
 ## Main Functionalities
 
-This module will allow showing 4 products by default for best selling products on a cms page
+This module will allow showing 4 products by default for best selling products on a category page
 
 ## Installation
 
