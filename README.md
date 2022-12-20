@@ -11,7 +11,7 @@
 
 ## Main Functionalities
 
-This module will allow showing 4 best seller products on category page of that particular category
+This module will allow showing 4 products by default for best selling products on a cms page
 
 ## Installation
 
@@ -26,5 +26,10 @@ This module will allow showing 4 best seller products on category page of that p
 
  - Coming soon
 
-
 ## Configuration
+
+ - Coming soon
+
+## Contribution
+
+Want to contribute to this extension? The quickest way is to open a pull request on GitHub.
