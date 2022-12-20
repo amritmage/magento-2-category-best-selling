@@ -1,6 +1,6 @@
-# Magento 2 Module Magestar BestSellers
+# Magento 2 Best Selling Product Slider
 
-    ``magestar/bestsellers``
+ ``magestar/bestsellers``
 
  - [Main Functionalities](#markdown-header-main-functionalities)
  - [Installation](#markdown-header-installation)
@@ -10,10 +10,10 @@
 
 
 ## Main Functionalities
+
 This module will allow showing 4 best seller products on category page of that particular category
 
 ## Installation
-\* = in production please use the `--keep-generated` option
 
 ### Type 1: Zip file
 
@@ -28,16 +28,3 @@ This module will allow showing 4 best seller products on category page of that p
 
 
 ## Configuration
-
-
-
-
-## Specifications
-
-
-
-
-## Attributes
-
-
-
