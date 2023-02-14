@@ -1,6 +1,6 @@
 # Magento 2 Best Selling Product Slider for Category Page
 
- ``magestar/bestsellers``
+ ``Magestar/CategoryBestSeller``
 
  - [Main Functionalities](#markdown-header-main-functionalities)
  - [Installation](#markdown-header-installation)
@@ -18,7 +18,7 @@ This module will allow showing 4 products by default for best selling products o
 ### Type 1: Zip file
 
  - Unzip the zip file in `app/code/Magestar`
- - Enable the module by running `php bin/magento module:enable Magestar_BestSellers`
+ - Enable the module by running `php bin/magento module:enable Magestar_CategoryBestSeller`
  - Apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
 

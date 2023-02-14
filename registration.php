@@ -6,6 +6,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Magestar_BestSellers',
+    'Magestar_CategoryBestSeller',
     __DIR__
 );

@@ -1,6 +1,6 @@
 <?php
 
-namespace Magestar\BestSellers\Helper;
+namespace Magestar\CategoryBestSeller\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
@@ -10,7 +10,7 @@ class Data extends AbstractHelper
     /**
      * Section name of module configuration
      */
-    const CONFIG_SECTION = 'bestsellers';
+    const CONFIG_SECTION = 'categorybestseller';
 
     /**
      * Get settings

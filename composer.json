@@ -1,6 +1,6 @@
 {
-    "name": "magestar/bestsellers",
-    "description": "Best seller products",
+    "name": "magestar/module-category-best-seller",
+    "description": "Category best seller products",
     "require": {
         "magento/catalog": ""
     },
@@ -16,7 +16,7 @@
     "autoload": {
         "files": [ "registration.php" ],
         "psr-4": {
-            "Magestar\\BestSellers\\": "1.0.0"
+            "Magestar\\CategoryBestSeller\\": "1.0.0"
         }
     }
     }

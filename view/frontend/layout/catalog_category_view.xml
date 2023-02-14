@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="columns">
-            <block class="Magestar\BestSellers\Block\BestSellers" name="bestsellers" template="Magestar_BestSellers::bestsellers.phtml" after="-"></block>
+            <block class="Magestar\CategoryBestSeller\Block\BestSeller" name="category.best.seller" template="Magestar_CategoryBestSeller::bestseller.phtml" after="-"></block>
         </referenceContainer>
     </body>
 </page>

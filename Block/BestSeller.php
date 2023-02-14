@@ -1,8 +1,10 @@
 <?php 
 
-namespace Magestar\BestSellers\Block;
+namespace Magestar\CategoryBestSeller\Block;
 
-class BestSellers extends \Magento\Framework\View\Element\Template
+use Magento\Framework\App\Action\Action;
+
+class BestSeller extends \Magento\Catalog\Block\Product\AbstractProduct
 {
     protected $_registry;
     protected $_collectionFactory;
@@ -12,17 +14,8 @@ class BestSellers extends \Magento\Framework\View\Element\Template
     protected $_bestSellerProductIds = [];
     protected $_imageBuilder;
 
-    /**
-     * BannerSlider constructor.
-     * @param \Magento\Backend\Block\Template\Context $context
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Sales\Model\ResourceModel\Report\Bestsellers\CollectionFactory $collectionFactory
-     * @param \Magento\Reports\Model\ResourceModel\Product\CollectionFactory $productsFactory
-     * @param \Magento\Catalog\Block\Product\ImageBuilder $_imageBuilder
-     * @param array $data
-     */
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
+        \Magento\Catalog\Block\Product\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Sales\Model\ResourceModel\Report\Bestsellers\CollectionFactory $collectionFactory,
         \Magento\Reports\Model\ResourceModel\Product\CollectionFactory $productsFactory,
